@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano do Projeto · Natalia Balbinotti Estética Integrativa</title>
+<meta name="description" content="Plano de desenvolvimento do sistema web da clínica Natalia Balbinotti: visão geral, cronograma, pendências e investimento.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto:#0D0D0D; --grafite:#1A1A1A; --grafite2:#2B2B2B;
+    --dourado:#C9A15A; --dourado-escuro:#A97F35; --champagne:#E8C77E;
+    --marfim:#FBF9F5; --card:#FFFFFF; --card2:#F5F1E8;
+    --linha:#E6E0D3; --texto:#1C1915; --texto2:#57503F; --texto3:#8A8172;
+    --ok:#3E6B4A; --alerta:#8C3B2E;
+  }
+  *{box-sizing:border-box; margin:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--marfim); color:var(--texto);
+    font-family:'Montserrat',sans-serif; font-size:15.5px; line-height:1.7;
+  }
+
+  header{
+    background:var(--preto); color:#fff;
+    padding:56px 24px 44px; text-align:center;
+    border-bottom:3px solid var(--dourado);
+  }
+  .logo{display:block; margin:0 auto; width:min(340px,82vw); height:auto}
+  .doc-titulo{
+    margin-top:34px; font-size:.8rem; letter-spacing:.24em; text-transform:uppercase;
+    color:rgba(255,255,255,.75);
+  }
+  .doc-status{
+    display:inline-block; margin-top:14px; font-size:.74rem; font-weight:600;
+    border:1px solid var(--dourado); color:var(--champagne);
+    padding:5px 16px; border-radius:999px; letter-spacing:.08em;
+  }
+
+  nav.abas{
+    position:sticky; top:0; z-index:10;
+    background:var(--marfim); border-bottom:1px solid var(--linha);
+    display:flex; justify-content:center; gap:2px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
+    padding:0 12px;
+  }
+  nav.abas button{
+    appearance:none; background:none; border:none; cursor:pointer;
+    font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
+    letter-spacing:.06em; text-transform:uppercase;
+    color:var(--texto3); padding:18px 18px 15px;
+    border-bottom:3px solid transparent; white-space:nowrap;
+  }
+  nav.abas button:hover{color:var(--texto)}
+  nav.abas button[aria-selected="true"]{color:var(--texto); border-bottom-color:var(--dourado)}
+  nav.abas button:focus-visible{outline:2px solid var(--dourado); outline-offset:-2px}
+
+  main{max-width:960px; margin:0 auto; padding:48px 24px 90px}
+  section[role="tabpanel"]{display:none}
+  section[role="tabpanel"].ativa{display:block; animation:surge .3s ease}
+  @keyframes surge{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){ section[role="tabpanel"].ativa{animation:none} }
+
+  h2{font-family:'Playfair Display',serif; font-weight:600; font-size:1.7rem; margin-bottom:8px}
+  .sub{color:var(--texto2); max-width:64ch; margin-bottom:30px}
+  h3{font-family:'Playfair Display',serif; font-weight:600; font-size:1.15rem; margin:34px 0 12px}
+
+  .grade{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .cartao{
+    background:var(--card); border:1px solid var(--linha); border-radius:8px;
+    padding:22px 24px; box-shadow:0 1px 3px rgba(13,13,13,.04);
+  }
+  .cartao h4{font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:600; margin-bottom:6px}
+  .cartao p{font-size:.88rem; color:var(--texto2)}
+  .etiqueta{
+    display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--dourado-escuro); margin-bottom:10px;
+  }
+
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.06em;
+    padding:3px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .pill.feito{background:#EAF2EC; color:var(--ok)}
+  .pill.aguarda{background:#F7ECE0; color:var(--dourado-escuro)}
+  .pill.urgente{background:#F7E6E2; color:var(--alerta)}
+
+  .tempo{list-style:none; padding:0; margin:26px 0 0; position:relative}
+  .tempo::before{
+    content:''; position:absolute; left:11px; top:8px; bottom:8px;
+    width:2px; background:var(--linha);
+  }
+  .tempo li{position:relative; padding:0 0 34px 44px}
+  .tempo li:last-child{padding-bottom:0}
+  .tempo li::before{
+    content:''; position:absolute; left:4px; top:6px;
+    width:16px; height:16px; border-radius:50%;
+    background:var(--marfim); border:2px solid var(--dourado);
+  }
+  .tempo li.feito::before{background:var(--dourado)}
+  .tempo .fase-cab{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
+  .tempo .fase-nome{font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:600}
+  .tempo .fase-prazo{font-size:.76rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--dourado-escuro)}
+  .tempo p{font-size:.9rem; color:var(--texto2); max-width:62ch; margin-top:4px}
+  .tempo ul{margin:10px 0 0; padding-left:18px; font-size:.88rem; color:var(--texto2)}
+  .tempo ul li{padding:2px 0; position:static}
+  .tempo ul li::before{content:none}
+
+  .aviso{
+    background:var(--card2); border:1px solid var(--linha); border-left:3px solid var(--dourado);
+    border-radius:0 8px 8px 0; padding:16px 20px; margin:26px 0; font-size:.9rem; color:var(--texto2);
+  }
+  .aviso b{color:var(--texto)}
+
+  .pendencia{
+    background:var(--card); border:1px solid var(--linha); border-radius:8px;
+    padding:20px 24px; margin-bottom:14px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .pendencia.ok{border-left:3px solid var(--ok)}
+  .pendencia .topo{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap}
+  .pendencia h4{font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:600}
+  .pendencia p{font-size:.88rem; color:var(--texto2); max-width:66ch}
+  .pendencia .como{font-size:.82rem; color:var(--texto3)}
+  .pendencia .como b{color:var(--dourado-escuro); font-weight:600}
+
+  .rolagem{overflow-x:auto; border:1px solid var(--linha); border-radius:8px; background:var(--card)}
+  table{border-collapse:collapse; width:100%; font-size:.87rem; min-width:560px}
+  th{
+    text-align:left; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--texto3); padding:12px 16px; border-bottom:1px solid var(--linha); background:var(--card2);
+  }
+  td{padding:12px 16px; border-bottom:1px solid var(--linha); color:var(--texto2); vertical-align:top}
+  td:first-child{color:var(--texto); font-weight:500}
+  tr:last-child td{border-bottom:none}
+  .num{font-variant-numeric:tabular-nums; white-space:nowrap}
+  tr.total td{background:var(--card2); font-weight:700; color:var(--texto)}
+
+  footer{
+    background:var(--preto); color:rgba(255,255,255,.65);
+    text-align:center; padding:34px 24px; font-size:.8rem;
+  }
+  footer .assinatura{
+    font-size:.72rem; letter-spacing:.42em; text-transform:uppercase;
+    color:var(--champagne); margin-bottom:8px; font-weight:500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="https://raw.githubusercontent.com/tacyanne/nb-plano-assets/main/logo-nb.png" alt="Natalia Balbinotti · Estética Integrativa">
+  <div class="doc-titulo">Plano do Sistema Web</div>
+  <div class="doc-status">Planejamento concluído · Materiais em recebimento</div>
+</header>
+
+<nav class="abas" role="tablist" aria-label="Seções do plano">
+  <button role="tab" id="aba-visao" aria-selected="true" aria-controls="visao">Visão Geral</button>
+  <button role="tab" id="aba-cronograma" aria-selected="false" aria-controls="cronograma">Cronograma</button>
+  <button role="tab" id="aba-pendencias" aria-selected="false" aria-controls="pendencias">Pendências</button>
+  <button role="tab" id="aba-investimento" aria-selected="false" aria-controls="investimento">Investimento</button>
+</nav>
+
+<main>
+
+<section id="visao" role="tabpanel" aria-labelledby="aba-visao" class="ativa">
+  <h2>O que está sendo construído</h2>
+  <p class="sub">Uma plataforma completa para a clínica, entregue em etapas. Cada etapa já entra em funcionamento assim que fica pronta: a clínica não precisa esperar tudo terminar para começar a usar.</p>
+
+  <div class="grade">
+    <div class="cartao">
+      <span class="etiqueta">Etapa 1</span>
+      <h4>Site da clínica</h4>
+      <p>Site elegante com a identidade da marca: apresentação da Natalia, páginas de cada procedimento, contato, botão de WhatsApp e preparado para aparecer bem no Google.</p>
+    </div>
+    <div class="cartao">
+      <span class="etiqueta">Etapa 1</span>
+      <h4>Agendamento online</h4>
+      <p>Cliente agenda pelo celular em menos de 2 minutos: avaliação ou os procedimentos liberados para agendamento direto. A equipe vê tudo em uma agenda interna, sincronizada com o Google Agenda, e o sistema envia confirmações e lembretes automáticos por WhatsApp e e-mail.</p>
+    </div>
+    <div class="cartao">
+      <span class="etiqueta">Etapa 1</span>
+      <h4>Cadastro e ficha das clientes</h4>
+      <p>Cadastro completo, ficha de anamnese digital, termos de consentimento e histórico de atendimentos. Tudo protegido: cada pessoa da equipe só vê o que precisa, conforme a lei de proteção de dados (LGPD).</p>
+    </div>
+    <div class="cartao">
+      <span class="etiqueta">Etapa 2</span>
+      <h4>Gestão da clínica</h4>
+      <p>Pacotes de sessões, controle de estoque com validade dos produtos, contas a pagar e receber, comissões da equipe e relatórios.</p>
+    </div>
+    <div class="cartao">
+      <span class="etiqueta">Etapa 3</span>
+      <h4>Loja virtual</h4>
+      <p>Venda dos produtos Inigua Life e Inigua Form pelo site, com pagamento por Pix e cartão, retirada na clínica ou entrega local.</p>
+    </div>
+    <div class="cartao">
+      <span class="etiqueta">Etapa 4</span>
+      <h4>Automações e campanhas</h4>
+      <p>Mensagens automáticas de pós-atendimento, reativação de clientes que sumiram, campanhas com consentimento e indicadores avançados.</p>
+    </div>
+  </div>
+
+  <h3>Onde estamos agora</h3>
+  <ul class="tempo">
+    <li class="feito">
+      <div class="fase-cab"><span class="fase-nome">Planejamento</span> <span class="pill feito">Concluído</span></div>
+      <p>Escopo, arquitetura, telas, regras e cronograma definidos e documentados.</p>
+    </li>
+    <li class="feito">
+      <div class="fase-cab"><span class="fase-nome">Aprovação e materiais</span> <span class="pill aguarda">Em andamento</span></div>
+      <p>Já recebidos: logotipo, rótulos dos produtos, horário de funcionamento e regra de agendamento. Faltam: lista de serviços com durações e preços, equipe e salas, textos e fotos (veja a aba <b>Pendências</b>).</p>
+    </li>
+    <li>
+      <div class="fase-cab"><span class="fase-nome">Construção da Etapa 1</span></div>
+      <p>Começa assim que as pendências urgentes forem resolvidas. Duração estimada: 8 a 10 semanas.</p>
+    </li>
+  </ul>
+
+  <div class="aviso"><b>Regra de agendamento definida com a clínica:</b> os procedimentos exigem avaliação prévia, agendada pelo site. As exceções, que podem ser agendadas diretamente online, são: <b>massagem relaxante, massagem terapêutica, drenagem linfática e limpeza de pele</b>. Isso protege a cliente, garante o procedimento certo e valoriza o trabalho da clínica.</div>
+</section>
+
+<section id="cronograma" role="tabpanel" aria-labelledby="aba-cronograma">
+  <h2>Cronograma</h2>
+  <p class="sub">Os prazos abaixo começam a contar a partir da aprovação do plano e da entrega dos materiais urgentes (veja a aba Pendências). Cada etapa é entregue funcionando e testada antes de passar para a próxima.</p>
+
+  <ul class="tempo">
+    <li>
+      <div class="fase-cab"><span class="fase-nome">Etapa 1 · Site + Agendamento + Fichas</span> <span class="fase-prazo">Meses 1 a 2,5</span></div>
+      <p>É o lançamento principal: a clínica passa a existir na internet e a operar com agenda digital.</p>
+      <ul>
+        <li><b>Semanas 1 a 2:</b> estrutura, segurança e banco de dados (trabalho interno, sem telas ainda).</li>
+        <li><b>Semanas 3 a 6:</b> site da clínica com a identidade da marca.</li>
+        <li><b>Semanas 5 a 8:</b> agendamento online, agenda da equipe, Google Agenda, lembretes por WhatsApp e e-mail.</li>
+        <li><b>Semanas 8 a 9:</b> cadastro de clientes, anamnese digital e termos de consentimento.</li>
+        <li><b>Semana 10:</b> testes finais, treinamento da equipe e publicação.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="fase-cab"><span class="fase-nome">Etapa 2 · Gestão da clínica</span> <span class="fase-prazo">Meses 3 a 4,5</span></div>
+      <p>Pacotes de sessões, estoque com controle de validade, financeiro (contas a pagar e receber), comissões e relatórios. Inclui o cadastro do inventário inicial com a equipe.</p>
+    </li>
+    <li>
+      <div class="fase-cab"><span class="fase-nome">Etapa 3 · Loja virtual</span> <span class="fase-prazo">Meses 5 a 6,5</span></div>
+      <p>Venda dos produtos Inigua pelo site com Pix e cartão. Também habilita a cobrança de sinal no agendamento, se a clínica decidir usar.</p>
+    </li>
+    <li>
+      <div class="fase-cab"><span class="fase-nome">Etapa 4 · Automações</span> <span class="fase-prazo">A partir do mês 7</span></div>
+      <p>Melhorias contínuas em pacotes pequenos: reativação de clientes, campanhas, indicadores avançados. Priorizadas junto com a clínica conforme a operação real.</p>
+    </li>
+  </ul>
+
+  <div class="aviso"><b>O que pode atrasar o cronograma:</b> na prática, o maior risco de atraso não é a tecnologia, e sim a espera por textos, fotos, lista de serviços e aprovações externas (como a liberação do WhatsApp oficial pela Meta, que pode levar de dias a semanas). Por isso essas frentes começam já na primeira semana.</div>
+</section>
+
+<section id="pendencias" role="tabpanel" aria-labelledby="aba-pendencias">
+  <h2>Pendências que dependem da clínica</h2>
+  <p class="sub">Lista do que precisamos receber ou decidir com você. Nada aqui exige conhecimento técnico: são materiais e escolhas do negócio. Pode enviar tudo por WhatsApp ou e-mail, no formato que tiver.</p>
+
+  <h3>Já recebidos</h3>
+
+  <div class="pendencia ok">
+    <div class="topo"><h4>Logotipo e rótulos dos produtos</h4><span class="pill feito">Recebido em 11/07</span></div>
+    <p>Logotipo em alta resolução (versão clara para fundo escuro, já aplicada no topo desta página) e imagens dos produtos Inigua Life e Inigua Form, incluindo o rótulo completo do Form.</p>
+    <p class="como"><b>Complemento bem-vindo:</b> se existir versão do logotipo para fundo claro (dourado/preto) e o rótulo completo do Inigua Life, pode enviar também; ajudam nas páginas de fundo branco e na futura loja.</p>
+  </div>
+
+  <div class="pendencia ok">
+    <div class="topo"><h4>Horário de funcionamento</h4><span class="pill feito">Definido</span></div>
+    <p>Segunda a sexta, das 8h às 22h. Sábado, das 9h às 12h. É esse horário que alimentará a agenda online.</p>
+  </div>
+
+  <div class="pendencia ok">
+    <div class="topo"><h4>Regra de agendamento</h4><span class="pill feito">Definido</span></div>
+    <p>Todos os procedimentos exigem avaliação prévia, com exceção de: massagem relaxante, massagem terapêutica, drenagem linfática e limpeza de pele, que podem ser agendados diretamente pelo site.</p>
+  </div>
+
+  <h3>Urgentes (travam o início)</h3>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Lista de serviços e procedimentos</h4><span class="pill urgente">Urgente</span></div>
+    <p>Para cada procedimento: nome, breve descrição, quanto tempo dura a sessão, preço (ou "sob avaliação") e qual profissional realiza.</p>
+    <p class="como"><b>Por que:</b> alimenta as páginas do site e a agenda. A duração de cada procedimento é o que permite ao sistema calcular os horários disponíveis.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Salas e equipe</h4><span class="pill urgente">Urgente</span></div>
+    <p>Quantas salas de atendimento existem e a lista da equipe: nome, o que cada uma faz e os horários de trabalho de cada profissional dentro do horário da clínica.</p>
+    <p class="como"><b>Por que:</b> junto com as durações, define o que aparece como horário disponível no agendamento online.</p>
+  </div>
+
+  <h3>Decisões do negócio</h3>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Endereço do site (domínio)</h4><span class="pill aguarda">Aguardando decisão</span></div>
+    <p>Sugestão: <b>nataliabalbinotti.com.br</b> (precisamos verificar se está livre). Custo de cerca de R$ 40 por ano.</p>
+    <p class="como"><b>Como decidir:</b> basta aprovar a sugestão ou indicar outro nome. O registro fica no nome da clínica.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Regras de cancelamento e reagendamento</h4><span class="pill aguarda">Aguardando decisão</span></div>
+    <p>Com quanta antecedência a cliente pode cancelar ou remarcar sem penalidade? Sugestão: até 24 horas antes, com limite de 2 remarcações por agendamento.</p>
+    <p class="como"><b>Como decidir:</b> aprovar a sugestão ou ajustar os prazos. Isso pode ser mudado depois no painel, sem custo.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Cobrar sinal ao agendar?</h4><span class="pill aguarda">Aguardando decisão</span></div>
+    <p>Cobrar um valor antecipado reduz faltas, mas também afasta parte das clientes novas. Nossa recomendação: <b>começar sem sinal</b>, medir as faltas por 60 dias com os lembretes automáticos funcionando, e só então decidir. O sistema já nasce preparado para ativar a cobrança quando quiser.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Conta de pagamentos online (para a Etapa 3)</h4><span class="pill aguarda">Sem pressa · decidir até a Etapa 3</span></div>
+    <p>Para a loja virtual e o sinal, será preciso uma conta em um serviço de pagamento (como Asaas ou Mercado Pago), que processa Pix e cartão e cobra uma taxa por venda. Nossa recomendação é o <b>Asaas</b>; apresentaremos a comparação de taxas antes da decisão.</p>
+  </div>
+
+  <h3>Durante o projeto</h3>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Textos e fotos da clínica</h4><span class="pill aguarda">Até a semana 4</span></div>
+    <p>História e formação da Natalia, propósito da clínica e fotos profissionais do espaço e da equipe. Se preferir, fazemos uma conversa de 30 minutos e escrevemos os textos para sua aprovação.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>WhatsApp oficial</h4><span class="pill aguarda">Iniciar na semana 1</span></div>
+    <p>Para enviar confirmações e lembretes automáticos, usamos o WhatsApp oficial para empresas (aprovado pela Meta, dona do WhatsApp). Precisaremos criar ou verificar a conta da empresa na Meta, com CNPJ. A aprovação é da Meta e pode levar de dias a semanas, por isso começa cedo. Importante: o número usado no sistema deixa de funcionar no aplicativo comum do celular; podemos usar um número novo se preferir manter o atual como está.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Contatos do contador e do advogado</h4><span class="pill aguarda">Até a semana 6</span></div>
+    <p>O contador orienta sobre emissão de notas fiscais. O advogado revisa a política de privacidade, os termos de uso e os termos de consentimento (documentos obrigatórios por lidarmos com dados de saúde). Nós preparamos as minutas; a revisão jurídica é essencial antes de publicar.</p>
+  </div>
+
+  <div class="pendencia">
+    <div class="topo"><h4>Depoimentos autorizados</h4><span class="pill aguarda">Quando tiver</span></div>
+    <p>Depoimentos de clientes só entram no site com autorização registrada. Se já existirem depoimentos com autorização por escrito, pode enviar; senão, o sistema terá um fluxo para coletar essas autorizações.</p>
+  </div>
+</section>
+
+<section id="investimento" role="tabpanel" aria-labelledby="aba-investimento">
+  <h2>Investimento mensal em ferramentas</h2>
+  <p class="sub">Valores estimados dos serviços externos que mantêm o sistema no ar (não incluem o desenvolvimento nem anúncios). No início, quase tudo opera em planos gratuitos; os valores crescem apenas conforme a clínica usa mais.</p>
+
+  <div class="rolagem">
+  <table>
+    <thead><tr><th>Serviço</th><th>Para que serve</th><th>No início</th><th>Operação plena</th></tr></thead>
+    <tbody>
+      <tr><td>Endereço do site</td><td>O "nataliabalbinotti.com.br"</td><td class="num">R$ 3/mês</td><td class="num">R$ 3/mês</td></tr>
+      <tr><td>Hospedagem</td><td>Mantém o site no ar, rápido e seguro</td><td class="num">R$ 0</td><td class="num">~R$ 110/mês</td></tr>
+      <tr><td>Banco de dados</td><td>Onde ficam guardados cadastros, agenda e fichas, com cópia de segurança diária</td><td class="num">R$ 0 a 140</td><td class="num">~R$ 140/mês</td></tr>
+      <tr><td>WhatsApp oficial</td><td>Confirmações e lembretes automáticos</td><td class="num">~R$ 20 a 80</td><td class="num">~R$ 50 a 200/mês</td></tr>
+      <tr><td>E-mails automáticos</td><td>Confirmações e avisos por e-mail</td><td class="num">R$ 0</td><td class="num">R$ 0 a 110/mês</td></tr>
+      <tr><td>Monitoramento</td><td>Avisa a equipe técnica se algo falhar</td><td class="num">R$ 0</td><td class="num">R$ 0 a 150/mês</td></tr>
+      <tr class="total"><td>Total estimado</td><td></td><td class="num">R$ 25 a 85/mês</td><td class="num">R$ 300 a 600/mês</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Custos por venda (a partir da loja virtual, Etapa 3)</h3>
+  <div class="rolagem">
+  <table>
+    <thead><tr><th>Forma de pagamento</th><th>Taxa aproximada</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td>Pix</td><td class="num">~1% ou taxa fixa pequena</td><td>Dinheiro cai rápido na conta</td></tr>
+      <tr><td>Cartão de crédito</td><td class="num">~3% a 5%</td><td>Parcelamento tem custo adicional</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="aviso"><b>Custos opcionais futuros</b> (só se a clínica decidir usar): assinatura eletrônica com validade reforçada (~R$ 1 a 3 por documento) e emissão automática de notas fiscais (~R$ 50 a 100/mês). Ambos serão avaliados com o advogado e o contador.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="assinatura">Natalia Balbinotti · Estética Integrativa</div>
+  Plano do sistema web · versão 1.1 · julho de 2026
+</footer>
+
+<script>
+  const abas = document.querySelectorAll('nav.abas button');
+  const paineis = document.querySelectorAll('section[role="tabpanel"]');
+  function ativar(id){
+    paineis.forEach(p => p.classList.toggle('ativa', p.id === id));
+    abas.forEach(b => b.setAttribute('aria-selected', String(b.getAttribute('aria-controls') === id)));
+  }
+  abas.forEach(b => b.addEventListener('click', () => {
+    const id = b.getAttribute('aria-controls');
+    ativar(id);
+    history.replaceState(null, '', '#' + id);
+    window.scrollTo({top: 0, behavior: 'auto'});
+  }));
+  const hash = location.hash.replace('#','');
+  if (hash && document.getElementById(hash) && document.getElementById(hash).getAttribute('role') === 'tabpanel') ativar(hash);
+</script>
+
+</body>
+</html>
