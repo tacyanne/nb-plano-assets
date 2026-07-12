@@ -39,7 +39,7 @@
   .hero .olho{font-size:.74rem; letter-spacing:.46em; text-transform:uppercase; color:var(--champagne); font-weight:600}
   .hero h1{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(2.3rem, 6vw, 4.1rem); line-height:1.14; margin:22px auto 0; max-width:17ch; text-wrap:balance}
   .hero h1 em{font-style:italic; color:var(--champagne)}
-  .hero p{max-width:52ch; margin:24px auto 0; color:rgba(255,255,255,.72); font-size:1.02rem}
+  .hero p{max-width:54ch; margin:24px auto 0; color:rgba(255,255,255,.72); font-size:1.02rem}
   .hero .acoes{margin-top:40px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
   .btn{display:inline-block; text-decoration:none; font-weight:700; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; padding:16px 32px; border-radius:999px}
   .btn-ouro{background:linear-gradient(135deg,var(--dourado),var(--champagne)); color:var(--preto)}
@@ -66,7 +66,9 @@
 
   .tag-prov{display:inline-block; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--tinta3); border:1px dashed var(--tinta3); border-radius:999px; padding:3px 12px}
 
-  .cards-proc{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); margin-top:48px}
+  .grupo-titulo{font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--tinta3); font-weight:700; margin:56px 0 0; padding-bottom:12px; border-bottom:1px solid var(--linha)}
+  .grupo-titulo b{color:var(--dourado-escuro)}
+  .cards-proc{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); margin-top:24px}
   .proc{background:var(--branco); border:1px solid var(--linha); padding:30px 28px; position:relative; transition:transform .25s ease, box-shadow .25s ease}
   .proc:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(13,13,13,.08)}
   .proc::before{content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--dourado),transparent)}
@@ -91,10 +93,13 @@
   .produto .breve{display:inline-block; margin-top:16px; font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--dourado); border:1px solid rgba(201,161,90,.5); border-radius:999px; padding:6px 16px}
   .aviso-legal{margin-top:44px; text-align:center; font-size:.72rem; color:rgba(255,255,255,.4); max-width:70ch; margin-left:auto; margin-right:auto}
 
-  .sobre-grid{display:grid; gap:48px; grid-template-columns:1.1fr .9fr; align-items:center; margin-top:8px}
+  .sobre-grid{display:grid; gap:56px; grid-template-columns:1.05fr .95fr; align-items:start; margin-top:8px}
   @media (max-width:820px){ .sobre-grid{grid-template-columns:1fr} }
-  .sobre-foto{aspect-ratio:4/5; border:1px solid var(--linha); background:linear-gradient(160deg, var(--branco), var(--marfim) 60%); display:flex; align-items:center; justify-content:center; text-align:center; color:var(--tinta3); font-size:.8rem; padding:24px; position:relative}
-  .sobre-foto::before{content:''; position:absolute; inset:14px; border:1px solid var(--linha)}
+  .sobre-texto p{color:var(--tinta2); margin-top:16px; font-size:.96rem}
+  .sobre-texto .destaque{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.45rem; line-height:1.4; color:var(--dourado-escuro); margin-top:26px}
+  .moldura-foto{border:1px solid var(--linha); background:var(--branco); padding:14px}
+  .moldura-foto img{display:block; width:100%; height:auto}
+  .legenda{font-size:.74rem; color:var(--tinta3); text-align:center; margin-top:12px; letter-spacing:.06em}
 
   .bloco-contato{background:var(--branco); border-top:1px solid var(--linha)}
   .contato-grid{display:grid; gap:40px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:48px}
@@ -116,7 +121,7 @@
 </head>
 <body>
 
-<div class="faixa-previa">Prévia em construção · conteúdo provisório · <a href="/">ver plano do projeto</a></div>
+<div class="faixa-previa">Prévia em construção · conteúdo em aprovação · <a href="/">ver plano do projeto</a></div>
 
 <header class="topo">
   <div class="topo-in">
@@ -124,7 +129,7 @@
     <nav aria-label="Navegação principal">
       <a href="#procedimentos">Procedimentos</a>
       <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#sobre">Quem somos</a>
       <a href="#contato">Contato</a>
     </nav>
     <a class="cta-topo" href="#agendar">Agendar avaliação</a>
@@ -133,9 +138,9 @@
 
 <section class="hero" id="inicio">
   <p class="olho">Estética Integrativa · Londrina</p>
-  <h1>Cuidado com método, resultado com <em>equilíbrio</em>.</h1>
+  <h1>Transformar a forma como você <em>se enxerga</em>.</h1>
   <div class="fio"></div>
-  <p>Avaliação individual, protocolos personalizados e acompanhamento próximo, unindo estética, saúde e bem-estar em um só lugar.</p>
+  <p>Com o Método Vida Inigualável, unimos estética a um cuidado humano, acolhedor e transformador. Aqui, você não é apenas mais um atendimento.</p>
   <div class="acoes">
     <a class="btn btn-ouro" href="#agendar">Agendar avaliação</a>
     <a class="btn btn-linha" href="https://wa.me/554330394758" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -152,7 +157,7 @@
       <li>Drenagem Linfática</li>
       <li>Limpeza de Pele</li>
     </ul>
-    <p>Os demais procedimentos começam por uma avaliação, para indicar o protocolo certo para você.</p>
+    <p>Os tratamentos personalizados começam por uma consulta e avaliação, para indicar o protocolo certo para você.</p>
   </div>
 </div>
 
@@ -161,38 +166,54 @@
     <div class="cab rev">
       <p class="olho">Procedimentos</p>
       <h2>Um protocolo para cada pessoa, não uma fórmula para todas.</h2>
-      <p>Cada atendimento parte de uma escuta e de uma avaliação criteriosa. <span class="tag-prov">lista provisória · aguardando catálogo oficial da clínica</span></p>
+      <p>Cada tratamento é pensado para valorizar sua beleza e fortalecer sua autoestima. <span class="tag-prov">durações e valores em definição</span></p>
     </div>
+
+    <p class="grupo-titulo rev">Bem-estar · <b>agendamento online direto</b></p>
     <div class="cards-proc">
       <div class="proc rev">
         <h3>Massagem Relaxante</h3>
         <span class="modo">Agendamento direto</span>
-        <p>Alívio de tensões e bem-estar imediato, em ambiente acolhedor.</p>
-      </div>
-      <div class="proc rev">
-        <h3>Massagem Terapêutica</h3>
-        <span class="modo">Agendamento direto</span>
-        <p>Trabalho focado em desconfortos musculares e qualidade de vida.</p>
-      </div>
-      <div class="proc rev">
-        <h3>Drenagem Linfática</h3>
-        <span class="modo">Agendamento direto</span>
-        <p>Estímulo à circulação e redução de retenção de líquidos.</p>
+        <p>Experiência de relaxamento profundo que alivia tensões musculares, reduz o estresse e promove bem-estar físico e mental.</p>
       </div>
       <div class="proc rev">
         <h3>Limpeza de Pele</h3>
         <span class="modo">Agendamento direto</span>
-        <p>Higienização profunda e renovação para uma pele saudável.</p>
+        <p>Remove impurezas, células mortas e cravos, deixando a pele mais saudável, iluminada e preparada para absorver melhor os ativos.</p>
       </div>
       <div class="proc rev">
-        <h3>Protocolos Faciais</h3>
-        <span class="modo aval">Mediante avaliação</span>
-        <p>Tratamentos personalizados definidos após avaliação individual. Catálogo completo em breve.</p>
+        <h3>Drenagem Linfática</h3>
+        <span class="modo">Agendamento direto</span>
+        <p>Técnica que estimula o sistema linfático, reduzindo o inchaço, melhorando a circulação e promovendo sensação de leveza.</p>
       </div>
       <div class="proc rev">
-        <h3>Protocolos Corporais</h3>
+        <h3>Massagem Terapêutica</h3>
+        <span class="modo">Agendamento direto</span>
+        <p>Indicada para aliviar dores musculares, tensões e desconfortos, proporcionando recuperação, mobilidade e qualidade de vida.</p>
+      </div>
+    </div>
+
+    <p class="grupo-titulo rev">Tratamentos personalizados · <b>somente após consulta e avaliação</b></p>
+    <div class="cards-proc">
+      <div class="proc rev">
+        <h3>Gordura Localizada</h3>
         <span class="modo aval">Mediante avaliação</span>
-        <p>Planos de tratamento sob medida para os seus objetivos. Catálogo completo em breve.</p>
+        <p>Protocolo personalizado para reduzir medidas, melhorar o contorno corporal e tratar áreas específicas de acúmulo de gordura.</p>
+      </div>
+      <div class="proc rev">
+        <h3>Flacidez Facial e Corporal</h3>
+        <span class="modo aval">Mediante avaliação</span>
+        <p>Tratamentos desenvolvidos para estimular a produção de colágeno, devolvendo firmeza, sustentação e melhorando a qualidade da pele.</p>
+      </div>
+      <div class="proc rev">
+        <h3>Diástase Abdominal</h3>
+        <span class="modo aval">Mediante avaliação</span>
+        <p>Protocolo voltado para a recuperação da musculatura abdominal, promovendo fortalecimento e melhora estética e funcional.</p>
+      </div>
+      <div class="proc rev">
+        <h3>Rejuvenescimento Facial</h3>
+        <span class="modo aval">Mediante avaliação</span>
+        <p>Tratamentos personalizados para suavizar sinais do envelhecimento, estimular o colágeno e proporcionar uma pele mais firme, luminosa e revitalizada.</p>
       </div>
     </div>
   </div>
@@ -227,13 +248,18 @@
 
 <section class="bloco" id="sobre">
   <div class="in sobre-grid">
-    <div class="cab rev">
-      <p class="olho">Sobre</p>
-      <h2>Natalia Balbinotti</h2>
-      <p><span class="tag-prov">texto provisório · aguardando conteúdo oficial</span></p>
-      <p>Uma abordagem integrativa entende que estética, saúde e bem-estar caminham juntos. Aqui entrará a história, a formação e o propósito da Natalia, escritos com ela e aprovados antes da publicação.</p>
+    <div class="sobre-texto rev">
+      <p class="olho" style="font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; color:var(--dourado-escuro); font-weight:700">Quem somos</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.9rem,4vw,2.7rem); line-height:1.15; margin-top:14px">Natália Balbinotti e Rafael Prudente</h2>
+      <p>A Clínica Natália Balbinotti nasceu de um propósito muito maior do que realizar procedimentos estéticos: ela foi criada para transformar a forma como as pessoas se enxergam.</p>
+      <p>Ao concluir a graduação, Natália sabia que não queria oferecer apenas tratamentos. A verdadeira transformação não acontece só no corpo, mas na autoestima, na confiança e na maneira como cada pessoa escolhe viver. Ao lado do esposo e sócio, Rafael Prudente, deu vida ao <b>Método Vida Inigualável</b>, unindo a estética a um cuidado humano, acolhedor e transformador.</p>
+      <p>Aqui, você não é apenas mais um atendimento. Você é recebida com carinho, respeito e atenção, e cada tratamento é pensado para valorizar sua beleza, fortalecer sua autoestima e lembrar que cuidar de si não é luxo, é prioridade.</p>
+      <p class="destaque">"Porque acreditamos que a verdadeira beleza começa quando você aprende a se amar."</p>
     </div>
-    <div class="sobre-foto rev">Espaço reservado para a foto profissional da Natalia e da clínica</div>
+    <div class="rev">
+      <div class="moldura-foto"><img src="https://raw.githubusercontent.com/tacyanne/nb-plano-assets/main/fotos/natalia-rafael.jpg" alt="Natália Balbinotti e Rafael Prudente na clínica"></div>
+      <p class="legenda">Natália Balbinotti e Rafael Prudente</p>
+    </div>
   </div>
 </section>
 
