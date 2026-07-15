@@ -64,18 +64,19 @@
   .cab h2{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.9rem,4vw,2.7rem); line-height:1.15; margin-top:14px; text-wrap:balance}
   .cab p{color:var(--tinta2); margin-top:16px}
 
-  .tag-prov{display:inline-block; font-size:.64rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--tinta3); border:1px dashed var(--tinta3); border-radius:999px; padding:3px 12px}
-
   .grupo-titulo{font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--tinta3); font-weight:700; margin:56px 0 0; padding-bottom:12px; border-bottom:1px solid var(--linha)}
   .grupo-titulo b{color:var(--dourado-escuro)}
   .cards-proc{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); margin-top:24px}
-  .proc{background:var(--branco); border:1px solid var(--linha); padding:30px 28px; position:relative; transition:transform .25s ease, box-shadow .25s ease}
+  .proc{background:var(--branco); border:1px solid var(--linha); padding:30px 28px; position:relative; transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column}
   .proc:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(13,13,13,.08)}
   .proc::before{content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--dourado),transparent)}
   .proc h3{font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600}
   .proc .modo{font-size:.64rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--dourado-escuro); display:block; margin-top:6px}
   .proc .modo.aval{color:var(--tinta3)}
   .proc p{font-size:.86rem; color:var(--tinta2); margin-top:12px}
+  .proc .preco{margin-top:auto; padding-top:18px; font-size:.92rem; color:var(--tinta); font-weight:600}
+  .proc .preco b{color:var(--dourado-escuro); font-weight:700}
+  .proc .preco span{color:var(--tinta3); font-weight:500; font-size:.82rem}
 
   .bloco-produtos{background:var(--preto); color:#fff; position:relative}
   .bloco-produtos::before, .bloco-produtos::after{content:''; position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, var(--dourado), transparent)}
@@ -166,7 +167,7 @@
     <div class="cab rev">
       <p class="olho">Procedimentos</p>
       <h2>Um protocolo para cada pessoa, não uma fórmula para todas.</h2>
-      <p>Cada tratamento é pensado para valorizar sua beleza e fortalecer sua autoestima. <span class="tag-prov">durações e valores em definição</span></p>
+      <p>Cada tratamento é pensado para valorizar sua beleza e fortalecer sua autoestima.</p>
     </div>
 
     <p class="grupo-titulo rev">Bem-estar · <b>agendamento online direto</b></p>
@@ -175,21 +176,25 @@
         <h3>Massagem Relaxante</h3>
         <span class="modo">Agendamento direto</span>
         <p>Experiência de relaxamento profundo que alivia tensões musculares, reduz o estresse e promove bem-estar físico e mental.</p>
+        <p class="preco"><b>R$ 150</b> <span>· sessão de 1h</span></p>
       </div>
       <div class="proc rev">
         <h3>Limpeza de Pele</h3>
         <span class="modo">Agendamento direto</span>
         <p>Remove impurezas, células mortas e cravos, deixando a pele mais saudável, iluminada e preparada para absorver melhor os ativos.</p>
+        <p class="preco"><b>R$ 240</b> <span>· sessão de 1h30</span></p>
       </div>
       <div class="proc rev">
         <h3>Drenagem Linfática</h3>
         <span class="modo">Agendamento direto</span>
         <p>Técnica que estimula o sistema linfático, reduzindo o inchaço, melhorando a circulação e promovendo sensação de leveza.</p>
+        <p class="preco"><b>R$ 150</b> <span>· sessão de 1h</span></p>
       </div>
       <div class="proc rev">
         <h3>Massagem Terapêutica</h3>
         <span class="modo">Agendamento direto</span>
         <p>Indicada para aliviar dores musculares, tensões e desconfortos, proporcionando recuperação, mobilidade e qualidade de vida.</p>
+        <p class="preco"><b>R$ 150</b> <span>· sessão de 1h</span></p>
       </div>
     </div>
 
@@ -199,21 +204,25 @@
         <h3>Gordura Localizada</h3>
         <span class="modo aval">Mediante avaliação</span>
         <p>Protocolo personalizado para reduzir medidas, melhorar o contorno corporal e tratar áreas específicas de acúmulo de gordura.</p>
+        <p class="preco"><span>Plano e valores definidos na avaliação</span></p>
       </div>
       <div class="proc rev">
         <h3>Flacidez Facial e Corporal</h3>
         <span class="modo aval">Mediante avaliação</span>
         <p>Tratamentos desenvolvidos para estimular a produção de colágeno, devolvendo firmeza, sustentação e melhorando a qualidade da pele.</p>
+        <p class="preco"><span>Plano e valores definidos na avaliação</span></p>
       </div>
       <div class="proc rev">
         <h3>Diástase Abdominal</h3>
         <span class="modo aval">Mediante avaliação</span>
         <p>Protocolo voltado para a recuperação da musculatura abdominal, promovendo fortalecimento e melhora estética e funcional.</p>
+        <p class="preco"><span>Plano e valores definidos na avaliação</span></p>
       </div>
       <div class="proc rev">
         <h3>Rejuvenescimento Facial</h3>
         <span class="modo aval">Mediante avaliação</span>
         <p>Tratamentos personalizados para suavizar sinais do envelhecimento, estimular o colágeno e proporcionar uma pele mais firme, luminosa e revitalizada.</p>
+        <p class="preco"><span>Plano e valores definidos na avaliação</span></p>
       </div>
     </div>
   </div>
@@ -296,7 +305,7 @@
 
 <footer class="pe">
   <img src="https://raw.githubusercontent.com/tacyanne/nb-plano-assets/main/logo-nb.png" alt="Natalia Balbinotti · Estética Integrativa">
-  <p class="disc">Os resultados dos procedimentos podem variar de pessoa para pessoa. Nenhum conteúdo deste site substitui avaliação profissional individual.</p>
+  <p class="disc">Os resultados dos procedimentos podem variar de pessoa para pessoa. Nenhum conteúdo deste site substitui avaliação profissional individual. Valores sujeitos a alteração sem aviso prévio.</p>
   <p class="fim">Prévia em construção · <a href="/">ver plano do projeto</a> · © 2026 Natalia Balbinotti Estética Integrativa</p>
 </footer>
 
